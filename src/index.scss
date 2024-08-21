@@ -1,6 +1,10 @@
+* {
+    font-family: 'Inter', system-ui;
+}
+
 body {
     margin: 0;
-    font-family: "Inter", system-ui;
+    font-family: 'Inter', system-ui;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #e7f6ff;
@@ -44,7 +48,8 @@ header {
         margin-right: 15px;
     }
 
-    h3, p {
+    h3,
+    p {
         margin: 0;
     }
 
@@ -54,7 +59,7 @@ header {
 
     .headerRight {
         display: flex;
-        
+
         li {
             margin: 30px;
         }
@@ -69,16 +74,29 @@ header {
     padding: 40px;
     h1 {
         margin: 0;
+    }
+    .contentTop {
+        display: flex;
+        align-items: center;
         margin-bottom: 40px;
+        justify-content: space-between;
     }
 }
 
 .card {
     width: 220px;
-    border: 1px solid #F3f3f3;
+    border: 1px solid #f3f3f3;
     padding: 20px;
     border-radius: 40px;
     margin-right: 30px;
+    position: relative;
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0px 20px 35px 0px rgba(0, 0, 0, 0.06);
+        transform: translateY(-5px);
+    }
 
     h5 {
         font-weight: 400;
@@ -94,6 +112,15 @@ header {
     b {
         font-size: 13px;
     }
+
+    .likedUnliked {
+        position: absolute;
+        cursor: pointer;
+    }
+}
+
+.allSneakers {
+    display: flex;
 }
 
 .sneakerBottom {
@@ -114,4 +141,155 @@ header {
 .sneakerPrice {
     display: flex;
     flex-direction: column;
+}
+
+.searchBlock {
+    border: 1px solid #f3f3f3;
+    display: flex;
+    border-radius: 10px;
+    padding: 0 15px;
+
+    input {
+        border: 0;
+        padding: 13px;
+        font-size: 16px;
+        width: 200px;
+    }
+}
+
+.overlay {
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.drawer {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 420px;
+    height: 100%;
+    right: 0;
+    box-shadow: -10px 4px 24px 0px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 1);
+    padding: 30px;
+
+    .removeBtn {
+        opacity: 0.5;
+        transition: opacity 0.15s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    h2 {
+        margin: 0;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .items {
+        flex: 1;
+        overflow: auto;
+        margin-bottom: 40px;
+    }
+
+    .cartItem {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        border: 1px solid #f3f3f3;
+        border-radius: 20px;
+        width: 100%;
+        overflow: hidden;
+        padding: 20px;
+        margin-bottom: 20px;
+
+        p {
+            margin-bottom: 5;
+        }
+
+        .cardItemDescription {
+            margin-right: 20px;
+        }
+
+        
+
+        .imgItemCard {
+            margin-right: 20px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 0 10px;
+            height: 70px;
+            width: 70px;
+        }
+    }
+}
+
+.cartTotalBlock {
+    div {
+        flex: 1px;
+        height: 1px;
+        border-bottom: 1px dashed #dfdfdf;
+        position: relative;
+        top: -4px;
+        margin: 0 7px;
+    }
+
+    ul {
+        display: block;
+        margin-bottom: 30px;
+    }
+
+    li {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 20px;
+    }
+
+    .greenBtn {
+        position: relative;
+
+        &:hover {
+            img {
+                transform: translateX(5px);
+            }
+        }
+
+        img {
+            position: absolute;
+            right: 35px;
+            top: 22px;
+            transition: transform 0.15s ease-in-out;
+        }
+    }
+}
+
+.greenBtn {
+    width: 100%;
+    background-color: rgba(157, 212, 88, 1);
+    height: 55px;
+    border-radius: 18px;
+    opacity: 0px;
+    border: none;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.1s ease-in-out;
+
+    &:hover {
+        background: lighten(rgba(157, 212, 88, 1), 5%);
+    }
+
+    &:active {
+        background: darken(rgba(157, 212, 88, 1), 5%);
+    }
 }
